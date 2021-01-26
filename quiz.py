@@ -22,6 +22,10 @@ quizList.append( Quiz('Which of the following is a consequence of overdrawing yo
 quizList.append( Quiz('Rent is a:', "A", dict([('A', 'Fixed expense'), ('B', 'Variable expense'), ('C', 'Discretionary Expense'), ('D', 'Intermittent expense')]), 'Easy') )
 quizList.append( Quiz('Groceries are a:', "C", dict([('A', 'Fixed expense'), ('B', 'Intermittent expense'), ('C', 'Variable expense'), ('D', 'Discretionary expense')]), 'Easy'))
 
+quiz1 = quizList[0]
+quiz2 = quizList[1]
+quiz3 = quizList[2]
+
 for quiz in quizList:
     print(quiz.question)
     for letter, text in quiz.choices.items():  
