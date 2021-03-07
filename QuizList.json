@@ -1,0 +1,154 @@
+[
+    {
+        "question": "Which of the following is a consequence of overdrawing your checking account?",
+        "answer": "D",
+        "choices": {
+            "A": "Bounced check fee from the store",
+            "B": "Overdraft fee from your bank",
+            "C": "Stress from money mismanagement",
+            "D": "All of the above"
+        },
+        "level": "Easy"
+    },
+    {
+        "question": "Rent is a:",
+        "answer": "A",
+        "choices": {
+            "A": "Fixed expense",
+            "B": "Variable expense",
+            "C": "Discretionary Expense",
+            "D": "Intermittent expense"
+        },
+        "level": "Easy"
+    },
+    {
+        "question": "Groceries are a:",
+        "answer": "C",
+        "choices": {
+            "A": "Fixed expense",
+            "B": "Intermittent expense",
+            "C": "Variable expense",
+            "D": "Discretionary expense"
+        },
+        "level": "Easy"
+    },
+    {
+        "question": "Money that comes in or is earned is called ______________",
+        "answer": "C",
+        "choices": {
+            "A": "Deductions",
+            "B": "Expenses",
+            "C": "Income",
+            "D": "Budget"
+        },
+        "level": "Easy"
+    },
+    {
+        "question": "When you owe money it is called:",
+        "answer": "C",
+        "choices": {
+            "A": "Expenses",
+            "B": "Assets",
+            "C": "Debt",
+            "D": "Liabilities"
+        },
+        "level": "Easy"
+    },
+    {
+        "question": "Money deposited in a financial institution is insured up to:",
+        "answer": "A",
+        "choices": {
+            "A": "$250,000",
+            "B": "$500,000",
+            "C": "$400,000",
+            "D": "$100,000"
+        },
+        "level": "Easy"
+    },
+    {
+        "question": "Which have higher interest rates?",
+        "answer": "A",
+        "choices": {
+            "A": "Commercial banks",
+            "B": "Credit unions"
+        },
+        "level": "Easy"
+    },
+    {
+        "question": "What is the definition of balanced budget",
+        "answer": "C",
+        "choices": {
+            "A": "Goals that take more than a year to accomplish",
+            "B": "Income remaining after deduction of taxes, other mandatory changes, and expenditure on necessary items.",
+            "C": "Planning or budgeting process where total revenues are equal to or greater than total expenses.",
+            "D": "The object of a persons ambtion or effort"
+        },
+        "level": "Easy"
+    },
+    {
+        "question": "What is the definition of needs?",
+        "answer": "C",
+        "choices": {
+            "A": "Income remaining after deduction of taxes and other mandatory changes available to be spent or saved as ones wishes.",
+            "B": "The object of a persons ambition or effort.",
+            "C": "Something that is required because it is essential or very important.",
+            "D": "A phrase referring to the idea that investors should routinely and automaically put money into savings before spending on anything else"
+        },
+        "level": "Easy"
+    },
+    {
+        "question": "What does PIN stand for?",
+        "answer": "A",
+        "choices": {
+            "A": "Personal Identification Number",
+            "B": "people in neighborhood",
+            "C": "personal input number",
+            "D": "persons identity name"
+        },
+        "level": "Easy"
+    },
+    {
+        "question": "Connected to the cardholder’s bank account and used for purchases.",
+        "answer": "C",
+        "choices": {
+            "A": "Credit card",
+            "B": "social security card",
+            "C": "debit card",
+            "D": "insurance card"
+        },
+        "level": "Easy"
+    },
+    {
+        "question": "Who is responsible for confirming your bank account balance?",
+        "answer": "B",
+        "choices": {
+            "A": "the stores where you made the purchases from the account",
+            "B": "you",
+            "C": "your bank or credit union",
+            "D": "the debit card company"
+        },
+        "level": "Easy"
+    },
+    {
+        "question": "Which of the following is a consequence of overdrawing your checking account?",
+        "answer": "D",
+        "choices": {
+            "A": "Bounced check fee from the store",
+            "B": "Overdraft fee from your bank",
+            "C": "Stress from money mismanagement",
+            "D": "All of the above"
+        },
+        "level": "Easy"
+    },
+    {
+        "question": "You have searched everywhere for your debit card. You think it may have been stolen. Of the following actions, what is the best thing to do now?",
+        "answer": "D",
+        "choices": {
+            "A": "Wait at least 90 days to report the card as missing or stolen in case you find the card.",
+            "B": "Close your bank account.",
+            "C": "File a report with the Federal Trade Commission.",
+            "D": "Notify the company that issued your card"
+        },
+        "level": "Easy"
+    }
+]
