@@ -1,55 +1,38 @@
+#these lines help import things from the Python library into the code. 
+import json
 import pgzrun
 from random import randint 
 from pgzero.actor import Actor
 import pygame
 import time
 
+#this line is for the width of the game display screen
 WIDTH = 700
+#this line is for the height of the game display screen
 HEIGHT = 600
+#this line tells the code where the dots should be placed on the game display screen based on the height
 DOT_MAX_HEIGHT = 400
 
-class Quiz:
-    def __init__(self, question, answer, choices, level):
-        self.question = question
-        self.answer = answer
-        self.choices = choices
-        self.level = level
+#this line tells the code to open the file "QuizList.json" which is a seperate file.
+quizListFile = open("QuizList.json")
+#this line tells the code to read the file "QuizList.json" when the file has been opened up. 
+quizListFileContent = quizListFile.read()
+#this line parses a valid JSON string and converts it into a Python List.
+#each item in the list contains multiple key value pairs.
+#the keys are questions, answer, choices, and level. 
+#the item choices contains multiple key value pairs. 
+quizList = json.loads(quizListFileContent)
 
-    def check_answer(self, selected_answer):
-        if selected_answer == self.answer:
-            return "Correct"
-        else:
-            return "Wrong"
-
-
-
-
-
-
-quizList = []
-
-quizList.append( Quiz('Which of the following is a consequence of overdrawing your checking account?', "D", dict([('A', 'Bounced check fee from the store'), ('B', 'Overdraft fee from your bank'), ('C', 'Stress from money mismanagement'), ('D', 'All of the above')]), 'Easy') )
-quizList.append( Quiz('Rent is a:', "A", dict([('A', 'Fixed expense'), ('B', 'Variable expense'), ('C', 'Discretionary Expense'), ('D', 'Intermittent expense')]), 'Easy') )
-quizList.append( Quiz('Groceries are a:', "C", dict([('A', 'Fixed expense'), ('B', 'Intermittent expense'), ('C', 'Variable expense'), ('D', 'Discretionary expense')]), 'Easy'))
-quizList.append( Quiz('Money that comes in or is earned is called ______________', "C", dict([('A', 'Deductions'), ('B', 'Expenses'), ('C', 'Income'), ('D', 'Budget' )]), 'Easy'))
-quizList.append( Quiz('When you owe money it is called: ', "C", dict([('A', 'Expenses'), ('B', 'Assets'), ('C', 'Debt'), ('D', 'Liabilities')]), 'Easy'))
-quizList.append( Quiz('Money deposited in a financial institution is insured up to:', "A", dict([('A', '$250,000'), ('B', '$500,000'), ('C', '$400,000'), ('D', '$100,000')]), 'Easy'))
-quizList.append( Quiz('Which have higher interest rates?', "A", dict([('A', 'Commercial banks'), ('B', 'Credit unions')]), 'Easy'))
-quizList.append( Quiz('What is the definition of balanced budget?', "C", dict([('A', 'Goals that take more than a year to accomplish'), ('B', 'Income remaining after deduction of taxes, other mandatory changes, and expenditure on necessary items.'), ('C', 'Planning or budgeting process where total revenues are equal to or greater than total expenses. '), ('D', 'The object of a persons ambtion or effort')]), 'Easy'))
-quizList.append( Quiz('What is the definition of needs?', "C", dict([('A', 'Income remaining after deduction of taxes and other mandatory changes available to be spent or saved as ones wishes.'), ('B', 'The object of a persons ambition or effort.'), ('C', 'Something that is required because it is essential or very important.'), ('D', 'A phrase referring to the idea that investors should routinely and automaically put money into savings before spending on anything else')]), 'Easy'))
-quizList.append( Quiz('What does PIN stand for?', "A", dict([('A', 'Personal Identification Number '), ('B', 'people in neighborhood'), ('C', 'personal input number'), ('D', 'persons identity name')]), 'Easy'))
-quizList.append( Quiz('Connected to the cardholder’s bank account and used for purchases.', "C", dict([('A', 'Credit card'), ('B', 'social security card'), ('C', 'debit card'), ('D', 'insurance card')]), 'Easy'))
-quizList.append( Quiz('Who is responsible for confirming your bank account balance? ', "B", dict([('A', 'the stores where you made the purchases from the account'), ('B', 'you'), ('C', 'your bank or credit union'), ('D', 'the debit card company')]), 'Easy'))
-quizList.append( Quiz('You have searched everywhere for your debit card. You think it may have been stolen. Of the following actions, what is the best thing to do now?', "D", dict([('A', 'Wait at least 90 days to report the card as missing or stolen in case you find the card.'), ('B', 'Close your bank account.'), ('C', 'File a report with the Federal Trade Commission.'), ('D', 'Notify the company that issued your card')]), 'Easy'))
+#dots contains what the image and position should be for all of the dots on the screen
 dots = []
-
+#each line contains coordinates for where the line should be once two dots are clicked
 lines = []
-
+#if a dot is clicked then next_dot_clicked will change its value +1
 next_dot_clicked = 0
-
+#if a dot is clicked then next_dot will have the value of next_dot_clicked minus 1
 next_dot = 0
 
-# Loop from number 0 to number 14
+#0 to 14 is the range of values of the dots in the game
 for dot in range(0, 14):
     #this line will create a new Actor using the image of the dot in the images folder
     actor = Actor("dot")
@@ -80,30 +63,39 @@ def draw():
     if next_dot_clicked != 0:
         # this line draws the question selected from the quizList list based on the value of a dot that the user has clicked on.
         quiz = quizList[next_dot_clicked - 1]
-        screen.draw.text(quiz.question, \
+        screen.draw.text(quiz["question"], \
                         (20, 500), color="white")
         y = 520
-        for letter, text in quiz.choices.items():
+        #this is what draws the words on the screen, and what the text size should be, font, color, and position on the screen. 
+        for letter, text in quiz["choices"].items():
             screen.draw.text(("{} ({})".format(letter, text)), (20, y), color="white")
             y += 20
-
+        #this allows only a portion of the game screen to be updated, instead of the entire screen. 
         pygame.display.flip()
-
+        #this waits for the user's input for the question and if its true. 
         waitForInput = True
+        #executes the code below while the code above is waiting for the user's input.
         while waitForInput:
+            #the for loop below executes event in pygame.event.get
             for event in pygame.event.get():
+                #if event.type equals pygame.KEYDOWN then the code below will be executed
                 if event.type == pygame.KEYDOWN:
-                    if event.unicode.lower() == quiz.answer.lower():
+                    #if the user's answer matches the correct answer of the question, then correct will be drawn on the screen
+                    if event.unicode.lower() == quiz["answer"].lower():
                         screen.draw.text("Correct", (20, 480), color="green")
+                        #if the user finishes all of the questions correctly, than You Win will be drawn on the screen
                         if next_dot_clicked == 13:
                             screen.draw.text("YOU WIN", (200, 300), color="green", fontsize=100)
                         pygame.display.flip()
+                    #if the user does not answer a question correctly, then You Lose will be drawn on the screen. 
                     else:
                         screen.draw.text("YOU LOSE", (200, 300), color="red", fontsize=100)
                         pygame.display.flip()
+                        #then, the game will automatically exit and end the game for the user
                         time.sleep(5)
                         pygame.quit()
                         exit()
+                    #the input will be false if the user's answer is wrong for the question. 9- 
                     waitForInput = False
 
         #this line of code is the value of the variable next_dot_clicked when the user has not clicked another dot besides the first one
